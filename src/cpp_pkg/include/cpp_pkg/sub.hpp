@@ -14,7 +14,7 @@ class Sub : public rclcpp::Node
 
     private :
 
-        void topic_callback(const tutorial_interfaces::msg::Num msg) const;
+        void topic_callback(const tutorial_interfaces::msg::Num &msg) const;
 
         rclcpp::Subscription<tutorial_interfaces::msg::Num>::SharedPtr subscription_;
 };
