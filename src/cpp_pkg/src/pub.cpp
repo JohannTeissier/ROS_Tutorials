@@ -4,7 +4,6 @@ Pub::Pub() : Node("publisher"), count_(0)
 {
     this->publisher_ = this->create_publisher<tutorial_interfaces::msg::Num>("topic", 10);
     this->timer_ = this->create_wall_timer(1s, std::bind(&Pub::timer_callback, this));
-    RCLCPP_INFO(this->get_logger(), "Start publisher");
 }
 
 void Pub::timer_callback()
