@@ -7,8 +7,8 @@ from interfaces.msg import Num
 class Sub(Node) :
     def __init__(self) :
         super().__init__("subscriber")
-        self.subscription_ = self.create_subscription(Num, "topic", self.callback_topic, 10)
-
+        self.subscriptiion_ = self.create_subscription(Num, "topic", self.callback_topic, 10)
+    
     def callback_topic(self, msg) :
         self.get_logger().info("{}".format(msg.num))
 

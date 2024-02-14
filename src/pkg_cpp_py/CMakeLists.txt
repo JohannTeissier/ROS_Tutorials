@@ -8,8 +8,8 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_python REQUIRED)
-find_package(rclpy REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclpy REQUIRED)
 find_package(interfaces REQUIRED)
 
 #pour les fichiers include cpp
@@ -27,20 +27,26 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
+#pour les fichiers python
 ament_python_install_package(${PROJECT_NAME})
 
 # Install Python executables
 install(PROGRAMS
   scripts/sub.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME listener_py
+)
+
+install(PROGRAMS
   scripts/pub.py
   DESTINATION lib/${PROJECT_NAME}
+  RENAME talker_py
 )
 
 install(DIRECTORY
 	launch
 	DESTINATION share/${PROJECT_NAME}
 )
-
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

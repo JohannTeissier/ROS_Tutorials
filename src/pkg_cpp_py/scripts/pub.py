@@ -8,10 +8,10 @@ class Pub(Node) :
     def __init__(self) :
         super().__init__("publisher")
         self.publisher_ = self.create_publisher(Num, "topic", 10)
+        self.timer_ = self.create_timer(1.0, self.callback_timer)
         self.msg = Num()
         self.count_ = 0
-        self.timer_ = self.create_timer(1.0, self.callback_timer)
-        self.get_logger().info("Start publisher")
+        self.get_logger().info("Satrt publisher")
 
     def callback_timer(self) :
         self.msg.num = self.count_
